@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  /* Тёмная тема по умолчанию */
+  --bg: #0B0E11;
+  --surface: #1E2329;
+  --border: #2B3139;
+  --text: #EAECEF;
+  --text-secondary: #848E9C;
+  --accent: #F0B90B;
+  --up: #0ECB81;
+  --down: #F6465D;
+  --up-subtle: rgba(14, 203, 129, 0.18);
+  --down-subtle: rgba(246, 70, 93, 0.18);
+}
+
+.light {
+  /* Светлая тема */
+  --bg: #FFFFFF;
+  --surface: #F5F7FA;
+  --border: #EAECEF;
+  --text: #1E2329;
+  --text-secondary: #707A8A;
+  --accent: #F0B90B;
+  --up: #03A66D;
+  --down: #D9304A;
+  --up-subtle: rgba(3, 166, 109, 0.15);
+  --down-subtle: rgba(217, 48, 74, 0.15);
+}
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Кастомный скроллбар */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Пульсация индикатора LIVE */
+@keyframes liveDotPulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(14, 203, 129, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(14, 203, 129, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(14, 203, 129, 0);
+  }
+}
+
+.live-pulse {
+  animation: liveDotPulse 2s infinite;
+}
+
+/* Доступность: отключение анимаций при prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

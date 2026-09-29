@@ -1,0 +1,45 @@
+{
+  "entities": {
+    "UserProfile": {
+      "collection": "users",
+      "fields": {
+        "uid": { "type": "string", "description": "User UID from Firebase Auth" },
+        "email": { "type": "string", "description": "User email" },
+        "name": { "type": "string", "description": "User display name" },
+        "avatar": { "type": "string", "description": "User avatar URL or base64" },
+        "balances": { "type": "object", "description": "Virtual USD and RUB balances" },
+        "favorites": { "type": "array", "description": "Array of favorite coin IDs" },
+        "createdAt": { "type": "number", "description": "Account creation timestamp" },
+        "updatedAt": { "type": "number", "description": "Last profile update timestamp" }
+      }
+    },
+    "PortfolioItem": {
+      "collection": "users/{userId}/portfolio",
+      "fields": {
+        "coinId": { "type": "string", "description": "Coin unique identifier (e.g. bitcoin)" },
+        "symbol": { "type": "string", "description": "Coin ticker symbol (e.g. BTC)" },
+        "name": { "type": "string", "description": "Coin full name (e.g. Bitcoin)" },
+        "amount": { "type": "number", "description": "Holding quantity of coin" },
+        "averageBuyPriceUsd": { "type": "number", "description": "Average purchase price in USD" },
+        "totalCostUsd": { "type": "number", "description": "Total invested cost in USD" },
+        "updatedAt": { "type": "number", "description": "Last updated timestamp" }
+      }
+    },
+    "Transaction": {
+      "collection": "users/{userId}/transactions",
+      "fields": {
+        "id": { "type": "string", "description": "Unique transaction ID" },
+        "userId": { "type": "string", "description": "User UID" },
+        "type": { "type": "string", "description": "BUY, SELL, DEPOSIT, or RESET" },
+        "coinId": { "type": "string", "description": "Coin ID if trading operation" },
+        "symbol": { "type": "string", "description": "Coin ticker symbol" },
+        "name": { "type": "string", "description": "Coin name" },
+        "amount": { "type": "number", "description": "Amount of coin traded" },
+        "priceFiat": { "type": "number", "description": "Execution price in fiat currency" },
+        "totalFiat": { "type": "number", "description": "Total amount in fiat" },
+        "fiatCurrency": { "type": "string", "description": "USD or RUB" },
+        "timestamp": { "type": "number", "description": "Operation timestamp" }
+      }
+    }
+  }
+}

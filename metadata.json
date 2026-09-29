@@ -1,0 +1,6 @@
+{
+  "name": "CryptoPulse — Терминал криптовалют",
+  "description": "Профессиональный крипто-трекер курсов в реальном времени в стиле Binance: живой стакан цен, графики, конвертер и аналитика рынка.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
